@@ -99,15 +99,37 @@ main {
   display: flex;
   align-items: center;
   gap: 2rem;
+  margin-right:-5rem;
 }
 
 .nav-link {
   position: relative;
   text-decoration: none;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 0.80rem;
   color: #0f172a;
   transition: color 0.25s ease;
+}
+
+.nav-link-logo {
+  position: relative;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.80rem;
+  color: #0f172a;
+  transition: color 0.25s ease;
+}
+
+
+.nav-link-logo::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.35rem;
+  width: 0;
+  height: 2px;
+  background: #0e7490;
+  transition: width 0.25s ease;
 }
 
 .nav-link::after {
@@ -1198,4 +1220,227 @@ footer {
   font-size: 0.85rem;
   color: #94a3b8;
 }
+
+/* ───────────────────────────────────────────────
+   RESPONSIVE HAMBURGER MENU
+   ─────────────────────────────────────────────── */
+
+/* Hide the actual checkbox */
+.menu-toggle {
+  display: none;
+}
+
+/* Hamburger icon styling */
+.hamburger {
+  display: none;                    /* hidden on desktop */
+  flex-direction: column;
+  justify-content: space-between;
+  width: 32px;
+  height: 24px;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.hamburger span {
+  width: 100%;
+  height: 4px;
+  background-color: #0f172a;
+  border-radius: 2px;
+  transition: all 0.35s ease;
+}
+
+/* Transform to X when open */
+.menu-toggle:checked + .hamburger span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+.menu-toggle:checked + .hamburger span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+.menu-toggle:checked + .hamburger span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+
+/*-------------------------Smaller Laptop Screen View--------------------------*/
+@media (max-width: 1400px){
+
+
+
+  .hamburger {
+    display: flex;
+  }
+
+  .main-nav {
+    display: none;                      /* hide horizontal nav */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid #e2e8f0;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 1rem 2rem;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);
+    z-index: 999;
+  }
+
+  /* Show vertical menu when checked */
+  .menu-toggle:checked ~ .main-nav {
+    display: flex;
+  }
+
+  /* Style links/buttons in mobile view */
+  .main-nav .nav-link,
+  .main-nav .nav-link--primary,
+  .main-nav .nav-link--secondary {
+    width: 100%;
+    max-width: 320px;
+    margin: 0.6rem 0;
+    text-align: center;
+    padding: 1rem 1.5rem !important;
+    border-radius: 12px;
+    font-size: 1.1rem;
+  }
+
+  /* Make action buttons stand out more */
+  .nav-link--primary,
+  .nav-link--secondary {
+    margin: 1rem auto;
+    font-size: 1.05rem;
+  }
+
+  /* Slightly smaller header on very small screens */
+  .site-header-inner {
+    padding: 1rem 1.2rem;
+  }
+
+  .logo {
+    height: 42px;
+  }
+
+  .logo-title {
+    font-size: 1.6rem;
+    margin-left:2rem;
+  }
+
+  .logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .logo-tagline {
+  font-size: 0.50rem;
+  color: #64748b;
+  letter-spacing: 0.2em;
+  font-weight: 500;
+  margin-top: 0.25rem;
+  margin-left:2rem;
+}
+}
+
+
+
+
+
+/* ── Mobile / Tablet view ───────────────────────────────────────*/
+@media (max-width: 960px) {   /* ← adjust this breakpoint (try 900–1024px) */
+
+  .hamburger {
+    display: flex;
+  }
+
+  .main-nav {
+    display: none;                      /* hide horizontal nav */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid #e2e8f0;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 1rem 2rem;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);
+    z-index: 999;
+  }
+
+  /* Show vertical menu when checked */
+  .menu-toggle:checked ~ .main-nav {
+    display: flex;
+  }
+
+  /* Style links/buttons in mobile view */
+  .main-nav .nav-link,
+  .main-nav .nav-link--primary,
+  .main-nav .nav-link--secondary {
+    width: 100%;
+    max-width: 320px;
+    margin: 0.6rem 0;
+    text-align: center;
+    padding: 1rem 1.5rem !important;
+    border-radius: 12px;
+    font-size: 1.1rem;
+  }
+
+  /* Make action buttons stand out more */
+  .nav-link--primary,
+  .nav-link--secondary {
+    margin: 1rem auto;
+    font-size: 1.05rem;
+  }
+
+  /* Slightly smaller header on very small screens */
+  .site-header-inner {
+    padding: 1rem 1.2rem;
+  }
+
+  .logo {
+    height: 42px;
+  }
+
+  .logo-title {
+    font-size: 1.6rem;
+  }
+
+  .logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+}
+
+/* Optional: overlay / dim background when menu open (nice touch) */
+.menu-toggle:checked ~ .main-nav::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.25);
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.menu-toggle:checked ~ .main-nav {
+  opacity: 1;
+}
+
+@media (max-width: 960px) {
+  .menu-toggle:checked ~ .main-nav::before {
+    opacity: 1;
+  }
+}
+
+/* Adjust content padding when header is fixed + thinner on mobile */
+@media (max-width: 960px) {
+  .page-with-fixed-header {
+    padding-top: 80px;   /* reduce from 96px if your header becomes shorter */
+  }
+}
+
 
