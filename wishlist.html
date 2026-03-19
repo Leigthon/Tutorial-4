@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Wishlist - Gadgets 7/11</title>
+    <link rel="stylesheet" href="styles.css"> 
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="page-with-fixed-header">
+
+      <!-- Header with styled navigation -->
+    <header class="site-header">
+        <div class="site-header-inner">
+            <div>
+                <a href="index.html" class="nav-link">
+                    <h1 class="logo-title">
+                        Gadgets 7/11
+                        <img src="—Pngtree—gadget icon graphic design template_3790049.png" 
+                             alt="Gadgets 7/11 logo" 
+                             class="logo">
+                    </h1>
+                    <p class="logo-tagline">USEFUL | RELIABLE | AFFORDABLE</p>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link nav-link--active">
+                    Home
+                </a>
+                <a href="productcat.html" class="nav-link">
+                    Product Categories
+                </a>
+                <a href="productdetails.html" class="nav-link">
+                    Product Details
+                </a>
+                <a href="aboutus.html" class="nav-link">
+                    About Us
+                </a>
+                <a href="contactus.html" class="nav-link">
+                    Contact Us
+                </a>
+                   <a  href="wishlist.html" class="nav-link nav-link--secondary"><i class="fa-solid fa-heart wishlist-heart active"></i>&nbsp;&nbsp;
+               </a>
+                <a href="shoppingcart.html" class="nav-link nav-link--primary">
+                    Shopping Cart <i class="fa-solid fa-cart-shopping"></i>
+                </a>
+             
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main content: only the wishlist checkbox -->
+    <main class="page-centered wishlist-page">
+        <section class="wishlist" aria-labelledby="wishlist-heading">
+            <h2 id="wishlist-heading">Save Items to Your Wishlist</h2>
+            <p>
+                This is a prototype wishlist. Tick the gadgets you are interested in now –
+                in a future tutorial we will make this save using JavaScript and Local Storage.
+            </p>
+            <ul class="wishlist-list">
+                <li><label><input type="checkbox" name="wishlist" value="iphone17"> Apple iPhone 17 Pro Max</label></li>
+                <li><label><input type="checkbox" name="wishlist" value="galaxy-s25"> Samsung Galaxy S25 Ultra</label></li>
+                <li><label><input type="checkbox" name="wishlist" value="pixel-10"> Google Pixel 10 Pro</label></li>
+                <li><label><input type="checkbox" name="wishlist" value="macbook-m3"> MacBook Pro (M3, 2023)</label></li>
+                <li><label><input type="checkbox" name="wishlist" value="ryzen-gaming-pc"> Ryzen 4 Gaming PC</label></li>
+            </ul>
+            <p class="wishlist-tip">
+                Tip: Take a screenshot of your wishlist or jot it down before you leave the page.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        © 2026 Gadgets 7/11. All rights reserved.
+    </footer>
+
+</body>
+</html>
