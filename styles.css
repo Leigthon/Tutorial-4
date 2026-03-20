@@ -1739,6 +1739,63 @@ footer {
     justify-items: center;
   }
 
+  /* Product catalog (category) and product detail adjustments for narrow phones */
+  /* Make category/product lists a single column and center items */
+  .category-grid,
+  .product-detail-grid,
+  .card-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    justify-items: center;
+  }
+
+  /* Tighter product card visuals */
+  .product-card {
+    max-width: 420px;
+    width: 100%;
+    display: block; /* ensure block so margins behave predictably */
+  }
+
+  .product-card__image {
+    height: 160px; /* consistent with other narrow images */
+  }
+
+  .product-card__title {
+    font-size: 1.05rem;
+  }
+
+  .product-card__price {
+    font-size: 1rem;
+  }
+
+  /* Product detail page: stack the image and details, reduce paddings */
+  .product-detail-grid {
+    grid-template-columns: 1fr; /* stack columns */
+    gap: 1rem;
+  }
+
+  .product-detail-card__image {
+    height: 200px; /* slightly smaller for narrow phones */
+  }
+
+  .product-detail-card__body {
+    padding: 1rem 1rem;
+  }
+
+  .product-detail-card__title { font-size: 1.25rem; }
+
+  .product-detail-card__price {
+    font-size: 1.25rem;
+    margin: 0.6rem 0;
+  }
+
+  /* Button group: stack buttons and make primary full-width where appropriate */
+  .button-group { flex-direction: column; gap: 0.6rem; }
+  .button-group .btn { width: 100%; padding: 0.7rem 1rem; }
+
+  /* Make reviews and long blocks more compact */
+  .product-reviews { height: auto; max-height: 36rem; padding-top: 1rem; }
+
   /* Logo slightly smaller on narrow phones to free horizontal space */
   .logo { height: 30px; }
   .logo-title { font-size: 1.15rem; }
