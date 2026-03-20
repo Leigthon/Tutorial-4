@@ -1491,7 +1491,7 @@ footer {
     max-width: auto;
     margin: auto auto; /* center each link within full-width nav */
     text-align: center;
-    padding: 100rem 1.5rem !important;
+    padding: 0.9rem 1.5rem !important;
     border-radius: 12px;
     font-size: 1.0rem;
   }
@@ -1621,6 +1621,150 @@ footer {
   .nav-link--secondary {
     font-size: 0.95rem;
     margin: 0.5rem auto;
+  }
+}
+
+/* Small narrow phones: 250px — 480px
+   Purpose: scale hero/title, center cards/images/icons and slightly reduce paddings
+   without impacting other breakpoints. */
+@media (min-width: 250px) and (max-width: 480px) {
+  /* Slightly tighter hero so long titles don't overflow on narrow phones */
+  .hero {
+    padding: 3.2rem 0.9rem 4rem;
+  }
+
+  .hero-title {
+    font-size: 2.6rem; /* tuned for narrow but tall phones */
+    line-height: 1.05;
+    margin-bottom: 0.6rem;
+  }
+
+  .hero-text {
+    font-size: 1.05rem;
+    max-width: 30rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Reduce image heights so cards fit better vertically */
+  .product-card__image,
+  .audience-card__image,
+  .product-detail-card__image {
+    height: 160px;
+  }
+
+  /* Tighter card body padding and centered content */
+  .product-card__body,
+  .audience-card__body,
+  .product-detail-card__body {
+    padding: 1rem;
+  }
+
+  .product-card,
+  .audience-card {
+    text-align: center;
+  }
+
+  .product-card__title,
+  .audience-card__title {
+    text-align: center;
+  }
+
+  /* Ensure images inside cards stay centered */
+  .product-card__image img,
+  .audience-card__image img {
+    margin: 0 auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  /* Slightly smaller buttons and nav items in this narrow range */
+  .btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.92rem;
+  }
+
+  .main-nav .nav-link,
+  .main-nav .nav-link--primary,
+  .main-nav .nav-link--secondary {
+    font-size: 0.95rem;
+    padding: 0.55rem 0.9rem !important;
+    max-width: 280px;
+  }
+
+  /* Reduce large button paddings used elsewhere to avoid overflow */
+  .btn-dark, .btn-red {
+    padding-left: 1.1rem;
+    padding-right: 1.1rem;
+  }
+
+  /* Reset margins and offsets introduced by larger breakpoints so content centers
+     correctly on narrow phones (some rules from other media queries add left margins). */
+  .logo-title { margin-left: 0 !important; }
+  .logo-tagline { margin-left: 0 !important; }
+  .main-nav { margin-right: 0 !important; }
+
+  /* Slightly tighter page padding and ensure main content centers */
+  main { padding: 2.5rem 0.9rem 3rem; }
+  .page-centered { padding-left: 0.6rem; padding-right: 0.6rem; }
+
+  /* Make single-column grids center their items */
+  .card-grid, .audience-grid, .home-videos {
+    justify-items: center;
+  }
+
+  /* Ensure product cards don't stretch off-center on narrow columns */
+  .product-card, .audience-card { margin-left: auto; margin-right: auto; max-width: 420px; }
+
+  /* Stronger centering: constrain the page container and remove stray horizontal offsets */
+  .page-centered {
+    max-width: 360px; /* keep content narrow and centered on very small phones */
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    box-sizing: border-box;
+  }
+
+  /* Make main content use reduced horizontal padding */
+  main { padding-left: 0.6rem; padding-right: 0.6rem; }
+
+  /* Header inner spacing: keep the logo and hamburger aligned without large left offsets */
+  .site-header-inner { padding-left: 0.6rem; padding-right: 0.6rem; }
+
+  /* Force single-column layouts so grid items don't appear off-center */
+  .card-grid, .audience-grid, .home-videos {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  /* Logo slightly smaller on narrow phones to free horizontal space */
+  .logo { height: 30px; }
+  .logo-title { font-size: 1.15rem; }
+
+  /* Tame video block sizing for narrow devices */
+  .home-videos {
+    gap: 1rem;
+  }
+
+  .home-videos video {
+    width: 100%;
+    max-height: 30rem; /* cap height so video doesn't dominate the column */
+    height: auto;
+    border-radius: 0.9rem;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Make CTAs inside the video area (e.g., "Take me there" / primary buttons) less tall */
+  .home-videos .btn,
+  .home-videos .btn-primary,
+  .home-videos .btn-secondary {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.42rem;
+    border-radius: 0.6rem;
+    min-width: 0; /* avoid forcing wide buttons */
   }
 }
 
