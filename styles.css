@@ -70,6 +70,7 @@ main {
   max-width: 1280px;
   margin: 0 auto;
   padding: 1.25rem 2rem;
+  position: relative; /* contain absolutely positioned mobile nav so it centers under the inner container */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -197,7 +198,7 @@ main {
 
 .nav-link--secondary:hover {
   background:rgb(255, 126, 126) ;
-}
+}a
 
 .page-with-fixed-header {
   padding-top: 96px;
@@ -1298,11 +1299,39 @@ footer {
   .main-nav .nav-link--secondary {
     width: 100%;
     max-width: 320px;
-    margin: 0.6rem 0;
+    margin: 0.6rem auto; /* center each link within full-width nav */
     text-align: center;
     padding: 1rem 1.5rem !important;
     border-radius: 12px;
     font-size: 1.1rem;
+  }
+
+  /* Ensure button contents (text + icon) are centered in mobile menu */
+  .main-nav .nav-link--primary,
+  .main-nav .nav-link--secondary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  /* remove global icon left margin so gap controls spacing on mobile */
+  .main-nav .nav-link--primary i,
+  .main-nav .nav-link--secondary i {
+    margin-left: 0 !important;
+  }
+
+  /* Ensure button contents (text + icon) are centered — use flex so icon doesn't push text off-center */
+  .main-nav .nav-link--primary,
+  .main-nav .nav-link--secondary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem; /* give small spacing between text and icon */
+  }
+  /* remove global icon left margin so gap controls spacing on mobile */
+  .main-nav .nav-link--primary i,
+  .main-nav .nav-link--secondary i {
+    margin-left: 0 !important;
   }
 
   /* Make action buttons stand out more */
@@ -1340,6 +1369,51 @@ footer {
   margin-top: 0.25rem;
   margin-left:2rem;
 }
+
+/*---- Shopping cart and wishlist buttons -------*/
+
+.btn-dark {
+  padding: 0.875rem 5rem 0.875rem 5rem;
+  background: #0f172a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn-red{
+  align-self: center;
+  /* padding: 0.875rem 2rem; */
+  padding: 0.875rem 5.5rem 0.875rem 5.5rem;
+  background: rgba(252, 15, 15, 0.475);
+  color:white;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  gap:8px;
+}
+
+.btn-dark:hover {
+  background: #020617;
+  background: black;
+  transform: translateY(-1px);
+}
+
+.btn-red:hover {
+  background: rgb(216, 36, 36);
+  transform: translateY(-1px);
+}
 }
 
 
@@ -1368,6 +1442,7 @@ footer {
     box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);
     z-index: 999;
   }
+  
 
   /* Show vertical menu when checked */
   .menu-toggle:checked ~ .main-nav {
@@ -1380,7 +1455,7 @@ footer {
   .main-nav .nav-link--secondary {
     width: 100%;
     max-width: 320px;
-    margin: 0.6rem 0;
+    margin: 0.6rem auto; /* center each link within full-width nav */
     text-align: center;
     padding: 1rem 1.5rem !important;
     border-radius: 12px;
@@ -1419,7 +1494,7 @@ footer {
   content: "";
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.25);
+  /* background: rgba(0,0,0,0.25); */
   z-index: -1;
   pointer-events: none;
   opacity: 0;
