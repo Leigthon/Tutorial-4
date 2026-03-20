@@ -1,35 +1,37 @@
-  .main-nav {
-    display: none;                      /* hide horizontal nav */
-    position: absolute;
-    top: 90%;
-    left: 0;
-    right: 0;
-    background: rgba(255, 255, 255, 0.97);
-    backdrop-filter: blur(12px);
-    border-top: 1px solid #e2e8f0;
-    border-bottom: 1px solid #e2e8f0;
+/* 
+   Gadgets 7/11 – Global Styles (Tutorial 3)
+   External CSS for layout, typography, navigation, product grids,
+   wishlist prototype and contact form.
+*/
 
-    flex-direction: column;
-    align-items: center;
-    padding: 1.5rem 1rem 3rem;
-    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);
-    z-index: 999;
-  }
+/* ---------- Base layout & typography ---------- */
 
-  .main-nav .nav-link{
-    font-size: 1rem;
-  }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-  .main-nav .nav-link--primary,
-  .main-nav .nav-link--secondary {
-    width: 100%;
-    max-width: 320px;
-    margin: 0.6rem auto; /* center each link within full-width nav */
-    text-align: center;
-    padding: 1rem 1.5rem !important;
-    border-radius: 12px;
-    font-size: 1.05rem;
-  }
+/* --------- Wishlist Styling -------------------*/
+.heart{
+  font-size: 28px; 
+  color: red; 
+  cursor: pointer;
+}
+/*<a class="heart">
+               
+               </a>*/
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Manrope", -apple-system, BlinkMacSystemFont, system-ui,
+    sans-serif;
+  background-color: #f8fafc;
+  color: #0f172a;
+  line-height: 1.6;
+}
 
 img {
   max-width: 100%;
@@ -1443,57 +1445,6 @@ footer {
 }
 
 /*-----over here -----*/
-
-/* Video section — mobile adjustments */
-/* Stacks videos, makes them full width, limits height and tightens captions/buttons */
-@media (max-width: 960px) {
-  .home-videos {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    align-items: stretch;
-  }
-
-  .home-videos figure {
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.5rem;
-  }
-
-  .home-videos video {
-    width: 100%;
-    height: auto;           /* keep aspect ratio */
-    max-height: 48vh;      /* prevent video from monopolising short screens */
-    border-radius: 0.75rem;
-    object-fit: cover;
-  }
-
-  .cap-description,
-  .home-videos figcaption {
-    font-size: 0.95rem;
-    color: #475569;
-    margin: 0 0.25rem 0.5rem 0.25rem;
-    line-height: 1.35;
-  }
-
-  /* Make the CTA under each video compact and full-width-friendly */
-  .home-videos .btn-dark {
-    align-self: center;
-    padding: 0.6rem 1.2rem;
-    font-size: 0.95rem;
-    width: auto;
-    min-width: 160px;
-  }
-}
-
-/* Extra-small phones: tighter spacing and slightly smaller captions */
-@media (max-width: 420px) {
-  .home-videos video { max-height: 40vh; }
-  .cap-description { font-size: 0.9rem; }
-  .home-videos .btn-dark { min-width: 140px; padding: 0.5rem 1rem; }
-}
 
 /* ── Mobile / Tablet view ───────────────────────────────────────*/
 @media (max-width: 1280px) {   /* ← adjust this breakpoint (try 900–1024px) */
