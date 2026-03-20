@@ -1,41 +1,33 @@
-  .main-nav {
-    display: none;                      /* hide horizontal nav */
-    position: absolute;
-    top: 90%;
-    left: 0;
-    right: 0;
-    background: rgba(255, 255, 255, 0.97);
-    backdrop-filter: blur(12px);
-    border-top: 1px solid #e2e8f0;
-    border-bottom: 1px solid #e2e8f0;
+/* 
+   Gadgets 7/11 – Global Styles (Tutorial 3)
+   External CSS for layout, typography, navigation, product grids,
+   wishlist prototype and contact form.
+*/
 
-    flex-direction: column;
-    align-items: center;
-    padding: 1.5rem 1rem 3rem;
-    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);
-    z-index: 999;
-  }
+/* ---------- Base layout & typography ---------- */
 
-  .main-nav .nav-link{
-    font-size: 1rem;
-  }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-  .main-nav .nav-link--primary,
-  .main-nav .nav-link--secondary {
-    width: 100%;
-    max-width: 320px;
-    margin: 0.6rem auto; /* center each link within full-width nav */
-    text-align: center;
-    padding: 1rem 1.5rem !important;
-    border-radius: 12px;
-    font-size: 1.05rem;
-  }
+/* --------- Wishlist Styling -------------------*/
+.heart{
+  font-size: 28px; 
+  color: red; 
+  cursor: pointer;
+}
+/*<a class="heart">
+               
+               </a>*/
 
-/* Global base/reset for typography & body (restored Manrope font) */
+
 body {
   margin: 0;
   padding: 0;
-  font-family: "Manrope", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-family: "Manrope", -apple-system, BlinkMacSystemFont, system-ui,
+    sans-serif;
   background-color: #f8fafc;
   color: #0f172a;
   line-height: 1.6;
@@ -266,7 +258,7 @@ main {
 .hero {
   text-align: center;
   color: #ffffff;
-  padding: 180px 1.6rem 140px;
+  padding: 100%;
   background: linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.65)),
   
     url("https://thumbs.dreamstime.com/b/futuristic-digital-shopping-concept-neon-percent-symbol-high-tech-store-image-generated-using-ai-402619618.jpg")
@@ -489,6 +481,60 @@ main {
   gap: 2.5rem;
 }
 
+/* Contact page — small screen improvements (scoped, non-invasive) */
+@media (max-width: 640px) {
+  /* Stack the two-column contact layout into a single column */
+  .contact-layout {
+    display: block !important;
+    padding: 1.5rem 1rem !important;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Make the intro and card full width and vertically spaced */
+  .contact-info {
+    margin-bottom: 1.25rem;
+    padding: 0 0.25rem;
+  }
+
+  .contact-card {
+    margin-top: 0.75rem;
+    padding: 1.25rem !important;
+    border-radius: 0.9rem;
+    box-shadow: 0 8px 22px rgba(15,23,42,0.06);
+  }
+
+  /* Slightly smaller title and subtitle so they don't wrap oddly */
+  .contact-title { font-size: 1.6rem; }
+  .contact-subtitle { font-size: 0.98rem; }
+
+  /* Tighten form fields so they fit comfortably on small screens */
+  .form-field { margin-bottom: 0.8rem; }
+  .form-field label { font-size: 0.92rem; }
+  .form-field input,
+  .form-field textarea {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    border-radius: 0.6rem;
+    font-size: 0.95rem;
+  }
+
+  .form-field textarea { min-height: 110px; }
+
+  /* Make the submit button full-width and visually balanced */
+  .contact-card .btn {
+    display: block;
+    width: 100%;
+    padding: 0.9rem 1rem;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  /* Reduce contact details spacing */
+  .contact-details p { margin-bottom: 0.45rem; font-size: 0.95rem; }
+}
+
 .contact-card {
   background: #ffffff;
   padding: 2rem;
@@ -517,54 +563,6 @@ main {
   font-size: 0.95rem;
   outline: none;
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
-}
-
-/* Contact page — responsive tweaks for small screens */
-@media (max-width: 640px) {
-  .contact-layout {
-    display: block;
-    padding: 1.25rem 1rem 2rem;
-  }
-
-  .contact-info {
-    margin-bottom: 1.25rem;
-  }
-
-  .contact-card {
-    margin-top: 0.75rem;
-    padding: 1rem;
-    border-radius: 0.8rem;
-  }
-
-  .contact-title { font-size: 1.6rem; }
-  .contact-subtitle { font-size: 0.98rem; }
-
-  .form-field input,
-  .form-field textarea {
-    font-size: 0.95rem;
-    padding: 0.65rem 0.75rem;
-  }
-
-  .contact-card .btn {
-    width: 100%;
-    display: block;
-    padding: 0.85rem 1rem;
-    font-size: 0.98rem;
-    text-align: center;
-  }
-
-  /* Ensure anchor inside button fills the button and inherits styling */
-  .contact-card .btn a {
-    color: inherit;
-    text-decoration: none;
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
-
-  /* reduce overall vertical spacing so the page feels denser on small screens */
-  .contact-layout p,
-  .contact-details p { margin-bottom: 0.6rem; }
 }
 
 .form-field input:focus,
@@ -1501,57 +1499,6 @@ footer {
 }
 
 /*-----over here -----*/
-
-/* Video section — mobile adjustments */
-/* Stacks videos, makes them full width, limits height and tightens captions/buttons */
-@media (max-width: 960px) {
-  .home-videos {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    align-items: stretch;
-  }
-
-  .home-videos figure {
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.5rem;
-  }
-
-  .home-videos video {
-    width: 100%;
-    height: auto;           /* keep aspect ratio */
-    max-height: 48vh;      /* prevent video from monopolising short screens */
-    border-radius: 0.75rem;
-    object-fit: cover;
-  }
-
-  .cap-description,
-  .home-videos figcaption {
-    font-size: 0.95rem;
-    color: #475569;
-    margin: 0 0.25rem 0.5rem 0.25rem;
-    line-height: 1.35;
-  }
-
-  /* Make the CTA under each video compact and full-width-friendly */
-  .home-videos .btn-dark {
-    align-self: center;
-    padding: 0.6rem 1.2rem;
-    font-size: 0.95rem;
-    width: auto;
-    min-width: 160px;
-  }
-}
-
-/* Extra-small phones: tighter spacing and slightly smaller captions */
-@media (max-width: 420px) {
-  .home-videos video { max-height: 40vh; }
-  .cap-description { font-size: 0.9rem; }
-  .home-videos .btn-dark { min-width: 140px; padding: 0.5rem 1rem; }
-}
 
 /* ── Mobile / Tablet view ───────────────────────────────────────*/
 @media (max-width: 1280px) {   /* ← adjust this breakpoint (try 900–1024px) */
