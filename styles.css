@@ -1094,7 +1094,7 @@ main {
 
 /*  make the card slightly more prominent or spacious */
 .about-card {
-  padding: 2.25rem;           /* a bit more generous than the default 2rem */
+  padding: 2.25rem;          
   background: #ffffff;
   border-radius: 1rem;
   box-shadow: 0 10px 28px rgba(15, 23, 42, 0.09);
@@ -1444,8 +1444,61 @@ footer {
   
 }
 
+/*-----over here -----*/
+
+/* Video section — mobile adjustments */
+/* Stacks videos, makes them full width, limits height and tightens captions/buttons */
+@media (max-width: 960px) {
+  .home-videos {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .home-videos figure {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .home-videos video {
+    width: 100%;
+    height: auto;           /* keep aspect ratio */
+    max-height: 48vh;      /* prevent video from monopolising short screens */
+    border-radius: 0.75rem;
+    object-fit: cover;
+  }
+
+  .cap-description,
+  .home-videos figcaption {
+    font-size: 0.95rem;
+    color: #475569;
+    margin: 0 0.25rem 0.5rem 0.25rem;
+    line-height: 1.35;
+  }
+
+  /* Make the CTA under each video compact and full-width-friendly */
+  .home-videos .btn-dark {
+    align-self: center;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.95rem;
+    width: auto;
+    min-width: 160px;
+  }
+}
+
+/* Extra-small phones: tighter spacing and slightly smaller captions */
+@media (max-width: 420px) {
+  .home-videos video { max-height: 40vh; }
+  .cap-description { font-size: 0.9rem; }
+  .home-videos .btn-dark { min-width: 140px; padding: 0.5rem 1rem; }
+}
+
 /* ── Mobile / Tablet view ───────────────────────────────────────*/
-@media (max-width: 960px) {   /* ← adjust this breakpoint (try 900–1024px) */
+@media (max-width: 1280px) {   /* ← adjust this breakpoint (try 900–1024px) */
 
   .hamburger {
     display: flex;
@@ -1530,14 +1583,14 @@ footer {
   opacity: 1;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1280px) {
   .menu-toggle:checked ~ .main-nav::before {
     opacity: 1;
   }
 }
 
 /* Adjust content padding when header is fixed + thinner on mobile */
-@media (max-width: 960px) {
+@media (max-width: 1280px) {
   .page-with-fixed-header {
     padding-top: 80px;   /* reduce from 96px if your header becomes shorter */
   }
@@ -1569,3 +1622,74 @@ footer {
 }
 
 
+/*------Rare case for devices such as a nest hub ------------------------*/
+
+
+
+/* ───────────────────────────────────────────────
+   Next hub — short-height device adjustments
+   Targets devices with viewport height ≤ 600px (small phones / compact screens)
+   Purpose: reduce vertical spacing, scale headings, and ensure scrollability so
+   important UI (header, hero, nav) is not clipped on devices with limited height.
+   ─────────────────────────────────────────────── */
+@media (min-width: 700px) and (max-height: 600px) {
+  /* Make the fixed header a bit thinner */
+  .site-header-inner {
+    padding: 0.65rem 1rem;
+  }
+
+  /* Slightly smaller logo/title to save vertical space */
+  .logo { height: 36px; }
+  .logo-title { font-size: 1.25rem; }
+  .logo-tagline { font-size: 0.45rem; }
+
+  /* Reduce the top padding on pages with fixed header so content isn't pushed too far down */
+  .page-with-fixed-header { padding-top: 72px; }
+
+  /* Reduce hero vertical size and scale text down */
+  .hero {
+    padding: 96px 1rem 72px;
+  }
+  .hero-title { font-size: 2.1rem; }
+  .hero-text { font-size: 1rem; max-width: 36rem; }
+
+  /* Tighter general section spacing */
+  .section { padding: 2rem 1rem; }
+
+  /* Reduce card paddings / image heights modestly to fit more on short screens */
+  .product-card__image { height: 200px; }
+  .product-detail-card__image { height: 200px; }
+
+  /* Make buttons slightly smaller to reduce vertical footprint */
+  .btn { padding: 0.6rem 1.6rem; font-size: 0.9rem; }
+  .btn-primary { padding: 0.6rem 1.6rem; }
+  .btn-secondary { padding: 0.55rem 1rem; }
+
+  /* Mobile nav: ensure it fits into the shorter viewport and can scroll if needed */
+  .main-nav {
+    max-height: calc(100vh - 56px); /* leave room for header + minimal browser chrome */
+    overflow-y: auto;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .main-nav .nav-link,
+  .main-nav .nav-link--primary,
+  .main-nav .nav-link--secondary {
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem !important;
+    max-width: 300px;
+  }
+
+  /* Reduce hero and large headings elsewhere */
+  .section-title { font-size: 1.6rem; }
+  .about-title, .contact-title { font-size: 1.8rem; }
+
+  /* Footer: reduce vertical padding */
+  footer { padding: 1rem 1rem; }
+
+  /* Minor tweak: make sure modal-like elements don't overflow the viewport unexpectedly */
+  .cart-page, .contact-layout, .confirmation-wrapper {
+    padding-bottom: 2rem;
+  }
+}
