@@ -584,14 +584,6 @@ main {
 
 .cart-product:target {
   display: block;
-}
-
-.cart-product:target ~ .empty-cart {
-  display: none;
-}
-
-.cart-page {
-  max-width: 900px;
   margin: 0 auto;
   padding: 3rem 1.5rem 4rem;
 }
@@ -1687,7 +1679,7 @@ footer {
   .main-nav .nav-link,
   .main-nav .nav-link--primary,
   .main-nav .nav-link--secondary {
-    font-size: 0.95rem;
+    font-size: 0.45rem;
     padding: 0.55rem 0.9rem !important;
     max-width: 280px;
   }
@@ -1700,8 +1692,11 @@ footer {
 
   /* Reset margins and offsets introduced by larger breakpoints so content centers
      correctly on narrow phones (some rules from other media queries add left margins). */
-  .logo-title { margin-left: 0 !important; }
-  .logo-tagline { margin-left: 0 !important; }
+  .logo-title { 
+    margin-left: 0 !important; }
+  .logo-tagline {
+    font-size:0.2rem;
+     margin-left: 0 !important; }
   .main-nav { margin-right: 0 !important; }
 
   /* Slightly tighter page padding and ensure main content centers */
@@ -1718,7 +1713,7 @@ footer {
 
   /* Stronger centering: constrain the page container and remove stray horizontal offsets */
   .page-centered {
-    max-width: 360px; /* keep content narrow and centered on very small phones */
+    max-width: 360px; /* allow more room so media (videos) can grow */
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -1825,29 +1820,56 @@ footer {
   .btn-primary, .btn-secondary { min-width: 0; }
 
   /* Logo slightly smaller on narrow phones to free horizontal space */
-  .logo { height: 30px; }
-  .logo-title { font-size: 1.15rem; }
+  .logo { height: 22px; }
+  .logo-title { font-size: 0.95rem; }
 
-  /* Tame video block sizing for narrow devices */
+  /* Make header tighter on very narrow phones */
+  .site-header-inner { padding: 0.45rem 0.6rem; }
+
+  /* Slightly smaller hamburger for narrow headers */
+  .hamburger {
+    width: 28px;
+    height: 20px;
+  }
+
+  .hamburger span {
+    height: 3px;
+  }
+
+  /* Tame video block sizing for narrow devices (flex layout to guarantee centering) */
   .home-videos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 1rem;
+    width: 100%;
+  }
+
+  /* Ensure each direct child fills width but centers its inner content */
+  .home-videos > * {
+    width: 100%;
+    display: block;
+    text-align: center;
   }
 
   .home-videos video {
-    width: 100%;
-    max-height: 30rem; /* cap height so video doesn't dominate the column */
+    width: min(92vw, 660px);
+    max-width: 100%;
+    max-height: clamp(280px, 50vh, 580px);
     height: auto;
+    aspect-ratio: 16 / 9;
     border-radius: 0.9rem;
     object-fit: cover;
     display: block;
+    margin: 0 auto;
   }
 
-  /* Make CTAs inside the video area (e.g., "Take me there" / primary buttons) less tall */
+
   .home-videos .btn,
   .home-videos .btn-primary,
   .home-videos .btn-secondary {
-    padding: 0.5rem 0.9rem;
-    font-size: 0.42rem;
+    padding: 0.6rem 1rem;
+    font-size: 0.46rem;
     border-radius: 0.6rem;
     min-width: 0; /* avoid forcing wide buttons */
   }
