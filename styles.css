@@ -1286,6 +1286,7 @@ footer {
     padding: 1.5rem 1rem 2rem;
     box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);
     z-index: 999;
+    margin: 0.6rem auto; /* center each link within full-width nav */
   }
 
   /* Show vertical menu when checked */
@@ -1320,19 +1321,7 @@ footer {
     margin-left: 0 !important;
   }
 
-  /* Ensure button contents (text + icon) are centered — use flex so icon doesn't push text off-center */
-  .main-nav .nav-link--primary,
-  .main-nav .nav-link--secondary {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem; /* give small spacing between text and icon */
-  }
-  /* remove global icon left margin so gap controls spacing on mobile */
-  .main-nav .nav-link--primary i,
-  .main-nav .nav-link--secondary i {
-    margin-left: 0 !important;
-  }
+
 
   /* Make action buttons stand out more */
   .nav-link--primary,
