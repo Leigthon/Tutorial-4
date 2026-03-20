@@ -1796,6 +1796,34 @@ footer {
   /* Make reviews and long blocks more compact */
   .product-reviews { height: auto; max-height: 36rem; padding-top: 1rem; }
 
+  /* Checkout & order-confirmation buttons: make CTAs compact and touch-friendly */
+  /* Cart / checkout page */
+  .cart-summary .btn,
+  .cart-actions .btn,
+  .cart-summary .btn-primary,
+  .cart-summary .btn-secondary {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    font-size: 0.95rem;
+    border-radius: 0.6rem;
+    display: block;
+    box-sizing: border-box;
+    min-width: 0;
+  }
+
+  /* Order confirmation / thank-you pages */
+  .confirmation-card .btn-primary,
+  .confirmation-success .btn-primary {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    font-size: 1rem;
+    min-width: 0;
+    border-radius: 0.7rem;
+  }
+
+  /* Avoid very large min-widths set elsewhere */
+  .btn-primary, .btn-secondary { min-width: 0; }
+
   /* Logo slightly smaller on narrow phones to free horizontal space */
   .logo { height: 30px; }
   .logo-title { font-size: 1.15rem; }
